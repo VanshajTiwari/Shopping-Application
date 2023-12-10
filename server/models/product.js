@@ -80,4 +80,4 @@ productSchema.pre('save',function(next){
     next();
 });
 
-module.exports=Mongoose.Schema('product',productSchema);
+module.exports=Mongoose.model('product',productSchema);

@@ -1,0 +1,60 @@
+[
+    {
+        "name":"vanshaj Tiwari",
+        "username":"vanshajt01",
+        "email":"vanshajtiwari62@gmail.com",
+        "password":"admin@123",
+        "confirmpassword":"admin@123",
+        "address":"NH-2,Vrindavan"
+    },
+    {
+        "name":"vishal Singhal",
+        "username":"vishals01",
+        "email":"vishal.gla_cs21@gla.ac.in",
+        "role":"seller",
+        "password":"admin@123",
+        "confirmpassword":"admin@123",
+        "address":"NH-2,Kosikalan"   
+    },
+    {
+        "name":"shivam Goyal",
+        "username":"shivamg01",
+        "role":"seller",
+        "email":"shivam.goyal_cs21@gla.ac.in",
+        "password":"admin@123",
+        "confirmpassword":"admin@123",
+        "address":"NH-2,Kosikalan" 
+    },
+    {
+        "name":"krishna pathak",
+        "username":"krishnap01",
+        "email":"krishna.pathak_cs21@gla.ac.in",
+        "password":"admin@123",
+        "confirmpassword":"admin@123",
+        "address":"NH-2,Vrindavan" 
+    },
+    {
+        "name":"karan singh",
+        "username":"karans01",
+        "email":"karan.singh_cs21@gla.ac.in",
+        "password":"admin@123",
+        "confirmpassword":"admin@123",
+        "address":"NH-2,Vrindavan" 
+    },
+    {
+        "name":"raghav sharma",
+        "username":"raghavs01",
+        "email":"raghavsharma@gmail.com",
+        "password":"admin@123",
+        "confirmpassword":"admin@123",
+        "address":"NH-2,Vrindavan" 
+    },
+    {
+        "name":"bhuvan tenguria",
+        "username":"bhuvant01",
+        "email":"bhuvamtenguria_cs21@gla.ac.in",
+        "password":"admin@123",
+        "confirmpassword":"admin@123",
+        "address":"NH-2,Vrindavan" 
+    }    
+]
