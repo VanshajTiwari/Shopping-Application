@@ -45,3 +45,5 @@ const userSchema=new Mongoose.Schema({
     toJSON:{virtuals:true},
     toObject:{virtuals:true}
 });
+
+module.exports=Mongoose.Schema("users",userSchema);

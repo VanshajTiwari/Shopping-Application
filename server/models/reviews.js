@@ -29,4 +29,6 @@ const reviewSchema=new Mongoose.Schema({
 },    {
     toJSON:{virtuals:true},
     toObject:{virtuals:true}
-})
+});
+
+module.exports=Mongoose.Schema('reviews',reviewSchema);

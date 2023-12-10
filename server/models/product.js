@@ -79,3 +79,5 @@ productSchema.pre('save',function(next){
     this.slug=slugify(this.productName,{lower:true});
     next();
 });
+
+module.exports=Mongoose.Schema('product',productSchema);
