@@ -1,10 +1,12 @@
 import logo from "./../../assets/img/logo-myntra.png";
+
+
 const Navbar = () => {
   return (
-    <header className="bg-white min-w-[100vw] flex justify-between items-center p-4 shadow-md fixed top-0">
+    <header className=" z-20 bg-white min-w-[100vw] flex justify-between items-center p-4 shadow-md fixed top-0">
         <div className="">
         
-            <img src={logo} alt="logo" width="130"/>
+            <img src={`${logo}`} alt="logo" width="130"/>
         </div>
         <nav>
             <ul  className="flex items-center font-bold text-gray-700 text-[13px]">
@@ -22,9 +24,9 @@ const Navbar = () => {
             <input placeholder="Search for product,branchs and more" className="w-[100%] bg-transparent p-2 focus:outline-0"/>
         </div>
         <div className="flex justify-center items-center gap-x-6 mr-12">
-            <div className="flex flex-col items-center"><i className="fa-regular fa-user"></i><span className="font-bold text-[13px] text-gray-800">Profile</span></div>
-            <div className="flex flex-col items-center"><i className="fa-regular fa-heart"></i><span className="font-bold text-[13px] text-gray-800">WishList</span></div>
-            <div className="flex flex-col items-center"><i className="fa-solid fa-bag-shopping"></i><span className="font-bold text-[13px] text-gray-800">Bag</span></div>
+            <a className="flex flex-col items-center" href="#"><i className="fa-regular fa-user"></i><span className="font-bold text-[13px] text-gray-800">Profile</span></a>
+            <a className="flex flex-col items-center" href="#"><i className="fa-regular fa-heart"></i><span className="font-bold text-[13px] text-gray-800">WishList</span></a>
+            <a className="flex flex-col items-center" href="#"><i className="fa-solid fa-bag-shopping"></i><span className="font-bold text-[13px] text-gray-800">Bag</span></a>
         </div>
     </header>
   )

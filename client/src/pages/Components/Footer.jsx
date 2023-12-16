@@ -3,8 +3,8 @@ const Footer = () => {
     const interactLink=["Makeup","Dresses For Girls","T-Shirts","Sandals","Headphones","Babydolls","Blazers For Men","Handbags","Ladies ","Watches","Bags","Sport Shoes","Reebok ","Shoes","Puma","Shoes"," Boxers","Wallets","Tops","Earrings","Fastrack Watches","Kurtis","Nike","Smart Watches","Titan Watches","Designer Blouse","Gowns","Rings","Cricket Shoes","Forever 21","Eye Makeup","Photo Frames","Punjabi Suits","Bikini","Myntra Fashion Show","Lipstick","Saree","Watches","Dresses","Lehenga","Nike Shoes","Goggles","Bras","Suit","Chinos","Shoes","Adidas Shoes","Woodland Shoes"," Jewellery","Designers","Sarees"]
   return (
     <div className="bg-gray-100 flex justify-center">
-    <div className="max-w-[850px]">
-        <div className="flex space-x-12 justify-center">
+    <div className="max-w-[1050px]">
+        <div className="flex space-x-12 justify-start">
             <div>
                 <div>
                     <h1 className="font-bold text-[14px] py-5">ONLINE SHOPPING</h1>
