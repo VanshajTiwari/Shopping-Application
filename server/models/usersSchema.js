@@ -31,8 +31,8 @@ const userSchema=new Mongoose.Schema({
         },
         select:false
     },
-    phone:{
-        type:[Number],
+    phone:[{
+        type:Number,
         min:10,
         max:10,
         validate:{
@@ -40,8 +40,9 @@ const userSchema=new Mongoose.Schema({
                return _.length<=2
             },
             message:"not more than 2 numbers can be Added"
-        }
-    },
+    }}
+]
+    ,
     address:{
         type:Object,
         default:{location:""}

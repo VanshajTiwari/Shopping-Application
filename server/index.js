@@ -1,15 +1,17 @@
 const Express=require('express');
 const morgan=require('morgan');
-const passport=require('./Controllers/passport');
-console.log(passport);
+
 const App=Express();
 
 App.use(morgan('tiny'));
 
-App.get("/",(req,res)=>res.status(200).send("Hello"));
-App.post('/authenticate', passport.authenticate('custom'), (req, res) => {
-    // If the middleware passes, the user is authenticated.
-    res.json({ message: 'Authentication successful.' });
-  });
 
+
+
+const userRoutes=require("./Routes/userRoutes");
+
+App.use("/users",userRoutes);
+App.use("/api/v1/",(req,res)=>res.status(200).send("Hello By Server"));
+
+App.all("*",(req,res)=>res.status(404).send("NOT FOUND"));
 module.exports=App
