@@ -1,14 +1,16 @@
 const Mongoose=require('mongoose');
+const slugify=require("slug");
 const productSchema=new Mongoose.Schema({
     slug:{
         type:String
     },
     sellers:[{
-        type:Mongoose.Schema.Types.ObjectId,
-        ref:"users",
+        type:String,
+        // type:Mongoose.Schema.Types.ObjectId,
+        // ref:"users",
         required:[true,"Products must belong to Seller"]
     }],
-    productName:{
+    productname:{
         type:String,
         required:[true,"Product have Some Name"],
         trim:true,
@@ -16,7 +18,9 @@ const productSchema=new Mongoose.Schema({
     },
     ratingsAverage:{
         type:Number,
-        default:4.5
+        default:4.5,
+        max:5,
+        min:1
     },
     ratingsQuantity:{
         type:Number,
@@ -41,28 +45,23 @@ const productSchema=new Mongoose.Schema({
     discount:{
         type:Number,
     },
-    Quantity:{
+    quantity:{
         type:Number,
         required:[true,"Description"]
     },
     imagesCover:{
         type:String,
-        required:[true,"product must have Images Cover"]
+       // required:[true,"product must have Images Cover"]
     },
     images:[{
         type:String,
-        required:[true,"product must have Images"]
+       // required:[true,"product must have Images"]
     }],
     category:{
         type:String,
         enum:["sports",'fashion',"men",'women',"kids","toy","phone","laptop","other","electronics","makeup","skincare","lifestyle"],
         required:[true,"product must belongs to some category"],
     },
-    rating:{
-        type:Number,
-        min:1,
-        max:5
-    }
 },
     {
         toJSON:{virtuals:true},
@@ -71,12 +70,12 @@ const productSchema=new Mongoose.Schema({
 );
 productSchema.virtual('reviews',{
     ref:"Review",
-    foreignField:'tour',
+    foreignField:'product',
     localField:"_id",
 
 });
 productSchema.pre('save',function(next){
-    this.slug=slugify(this.productName,{lower:true});
+    this.slug=slugify(this.productname,{lower:true});
     next();
 });
 
