@@ -1,9 +1,24 @@
 const Express=require('express');
 const morgan=require('morgan');
 const App=Express();
+const cookieParser=require('cookie-parser');
+const passport=require('passport');
+const expressSession=require('express-session');
 
+App.use(expressSession({
+    secret:"veryTOpSecret",
+    resave:false,
+    saveUninitialized:false
+}));
+App.use(passport.initialize());
+App.use(passport.session());
+require("./Controllers/Auth/passport")(passport);
+
+
+App.use(cookieParser());
 App.use(Express.json());
 App.use(morgan('tiny'));
+
 
 
 //

@@ -70,6 +70,9 @@ const userSchema=new Mongoose.Schema({
     toJSON:{virtuals:true},
     toObject:{virtuals:true}
 });
+userSchema.methods.checkPassword=async function(candPass){
+    return await bcrypt.compare(candPass,this.password);
+}
 userSchema.pre('save',async function(next){
         this.confirmpassword="",
         this.password=await bcrypt.hash(this.password,12);

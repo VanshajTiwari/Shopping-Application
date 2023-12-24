@@ -1,12 +1,13 @@
 const userModel=require("./../../models/usersSchema");
-const localStrategy=require('passport-local').Strategy();
+const localStrategy=require('passport-local').Strategy;
 const intialisingPassportfuncionality=(passport)=>{
         passport.use(new localStrategy(async (username,password,done)=>{
-            const user=await userModel.find({username:username});
+            const user=await userModel.findOne({username:username}).select("+password");
+    
             if(!user)
                 return done(null,"User Not FOUND!!");
-            if(user.password==password)
-                return done(null,"Username or password is Incorrect");
+           if(!await user.checkPassword(password))
+               return done(null,"Username or password is Incorrect");
             done(null,user);
         }));
         passport.serializeUser((user,done)=>{
