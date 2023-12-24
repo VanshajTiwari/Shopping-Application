@@ -24,10 +24,12 @@ App.use(morgan('tiny'));
 //
 const userRoutes=require("./Routes/userRoutes");
 const productRoutes=require('./Routes/productsRoutes');
+const reviewRoutes=require('./Routes/reviewRoutes');
 //Routes
 
 App.use("/users",userRoutes);
 App.use("/products",productRoutes);
+App.use("/reviews",reviewRoutes);
 App.use("/api/v1/",(req,res)=>res.status(200).send("Hello By Server"));
 
 App.all("*",(req,res)=>res.status(404).send("NOT FOUND"));

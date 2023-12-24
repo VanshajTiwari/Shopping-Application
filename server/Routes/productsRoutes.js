@@ -2,15 +2,16 @@ const productModel=require('./../models/product');
 
 const Route=require('express').Router();
 
-Route.get("/all",(req,res)=>{
-    console.log("All Products");
-    res.status(200).send("All products");
+Route.get("/all",async (req,res)=>{
+    const products=await productModel.find({}).populate("sellers");
+    res.status(200).json({status:"success",result:{products}});
 });
-Route.get("/:id/views",(req,res)=>{
+
+Route.get("/get/:id",async (req,res)=>{
     const {id}=req.params;
-    console.log(id);
-    res.status(200).send("views");
-});
+    const product=await productModel.findById(id).populate('review');
+    res.status(200).json({status:"success",result:{product}});
+})
 Route.post("/Add",async (req,res)=>{
     let sellerArr=[];
     const {sellers,productname,price,brand,summary,description,discount,category,quantity}=req.body;

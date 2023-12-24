@@ -1,4 +1,4 @@
-const Mongoose=requires('mongoose');
+const Mongoose=require('mongoose');
 
 const reviewSchema=new Mongoose.Schema({
     user:{
@@ -7,7 +7,7 @@ const reviewSchema=new Mongoose.Schema({
     },
     product:{
         type:Mongoose.Schema.Types.ObjectId,
-        ref:"products"
+        ref:"product"
     },
     review:
         {

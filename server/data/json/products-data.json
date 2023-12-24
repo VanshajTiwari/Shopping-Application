@@ -1,23 +1,86 @@
 [
     {
-        
+      "sellers": ["6587df61ada79ab3b13ce800","6587df61ada79ab3b13ce801"],
+      "productname":"iphone 14",
+      "ratingAverage":"4.5",
+      "ratingQuantity":"3",
+      "price":"45000",
+      "brand":"Apple",
+      "summary":"iphone with m-2 chip",
+      "description":"This is best Phone",
+      "quantity":"10",
+      "category":"phone"
     },
     {
-
+      "sellers": ["6587df61ada79ab3b13ce801"],
+      "productname":"Chess",
+      "ratingAverage":"4.5",
+      "ratingQuantity":"3",
+      "price":"500",
+      "brand":"Wootz",
+      "summary":"Faster",
+      "description":"stretegic game",
+      "quantity":"10",
+      "category":"toy"
     },
     {
-
+      "sellers": ["6587df61ada79ab3b13ce7fc"],
+      "productname":"shirt",
+      "ratingAverage":"4.5",
+      "ratingQuantity":"3",
+      "price":"1100",
+      "brand":"us polo",
+      "summary":"Simple Sleack design",
+      "description":"Design",
+      "quantity":"10",
+      "category":"fashion"
     },
     {
-
+      "sellers": ["6587df61ada79ab3b13ce7fd"],
+      "productname":"walkie talkie",
+      "ratingAverage":"3",
+      "ratingQuantity":"3",
+      "price":"100",
+      "brand":"China",
+      "summary":"walk and Talk",
+      "description":"talking to gamma",
+      "quantity":"10",
+      "category":"toy"
     },
     {
-
+      "sellers": ["6587df61ada79ab3b13ce7ff"],
+      "productname":"lego wars",
+      "ratingAverage":"5",
+      "ratingQuantity":"20",
+      "price":"3000",
+      "brand":"legos",
+      "summary":"kids",
+      "description":"for kids",
+      "quantity":"10",
+      "category":"kids"
     },
     {
-
+      "sellers": ["6587df61ada79ab3b13ce802"],
+      "productname":"invertor",
+      "ratingAverage":"4",
+      "ratingQuantity":"3",
+      "price":"10000",
+      "brand":"Xcel",
+      "summary":"Light ur home",
+      "description":"This is best Phone",
+      "quantity":"11",
+      "category":"electronics"
     },
     {
-
+      "sellers": ["6587df61ada79ab3b13ce7fe"],
+      "productname":"HP laptop aspire",
+      "ratingAverage":"4",
+      "ratingQuantity":"14",
+      "price":"55000",
+      "brand":"HP",
+      "summary":"iphone with m-2 chip",
+      "description":"This is best Phone",
+      "quantity":"10",
+      "category":"laptop"
     }
-]
+  ]

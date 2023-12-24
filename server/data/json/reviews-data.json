@@ -1,0 +1,46 @@
+[
+    {
+        "user":"6587df61ada79ab3b13ce800",
+        "product":"",
+        "review":"awesome Product",
+        "rating":"1.2"
+    },
+    {
+        "user":"6587df61ada79ab3b13ce801",
+        "product":"",
+        "review":"Good Product",
+        "rating":"1.5"
+
+    },
+    {   
+        "user":"6587df61ada79ab3b13ce7fc",
+        "product":"",
+        "review":"Good widget",
+        "rating":"1.5"
+    },
+    {
+        "user":"6587df61ada79ab3b13ce7fd",
+        "product":"",
+        "review":"Nice gadget",
+        "rating":"1.5"
+    },
+    {
+        "user":"6587df61ada79ab3b13ce7ff",
+        "product":"",
+        "review":"Very Good",
+        "rating":"1.5"
+    },    
+    {
+        "user":"6587df61ada79ab3b13ce802",
+        "product":"",
+        "review":"Working Perfect",
+        "rating":"1.5"
+    }
+    ,    
+    {
+        "user":"6587df61ada79ab3b13ce7fe",
+        "product":"",
+        "review":"Good Product",
+        "rating":"1.5"
+    }
+]

@@ -5,9 +5,9 @@ const productSchema=new Mongoose.Schema({
         type:String
     },
     sellers:[{
-        type:String,
-        // type:Mongoose.Schema.Types.ObjectId,
-        // ref:"users",
+
+        type:Mongoose.Schema.Types.ObjectId,
+        ref:"users",
         required:[true,"Products must belong to Seller"]
     }],
     productname:{
@@ -23,8 +23,7 @@ const productSchema=new Mongoose.Schema({
         min:1
     },
     ratingsQuantity:{
-        type:Number,
-        default:4.5
+        type:Number
     },
     price:{
         type:Number,
@@ -68,8 +67,8 @@ const productSchema=new Mongoose.Schema({
         toObject:{virtuals:true}
     }
 );
-productSchema.virtual('reviews',{
-    ref:"Review",
+productSchema.virtual('review',{
+    ref:"reviews",
     foreignField:'product',
     localField:"_id",
 
