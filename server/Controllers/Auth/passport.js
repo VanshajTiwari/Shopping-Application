@@ -2,8 +2,8 @@ const userModel=require("./../../models/usersSchema");
 const localStrategy=require('passport-local').Strategy;
 const intialisingPassportfuncionality=(passport)=>{
         passport.use(new localStrategy(async (username,password,done)=>{
-            const user=await userModel.findOne({username:username}).select("+password");
-    
+            const user=await userModel.findOne({username:username}).select("+password +confirmpassword");
+            console.log(user);
             if(!user)
                 return done(null,"User Not FOUND!!");
            if(!await user.checkPassword(password))

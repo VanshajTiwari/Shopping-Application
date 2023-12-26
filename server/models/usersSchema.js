@@ -1,5 +1,6 @@
 const Mongoose=require('mongoose');
 const bcrypt=require('bcryptjs');
+const crypto=require('crypto');
 const userSchema=new Mongoose.Schema({
     name:{
         type:String
@@ -65,18 +66,37 @@ const userSchema=new Mongoose.Schema({
         type:Date,
         default:Date.now()
     },
+    resetTokenCreatedAt:Date,
+    resetToken:String,
+    resetTokenExpire:String
 
 },{
     toJSON:{virtuals:true},
     toObject:{virtuals:true}
 });
 userSchema.methods.checkPassword=async function(candPass){
+    console.log(await bcrypt.compare(candPass,this.password));
     return await bcrypt.compare(candPass,this.password);
 }
+userSchema.methods.createResetToken=function(){
+    const resetToken=crypto.randomBytes(12).toString('hex');
+    this.resetToken=crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.resetTokenCreatedAt=Date.now();
+    return resetToken;
+
+}
 userSchema.pre('save',async function(next){
+        // if(this.isModified()){
+            
+        //    return next();
+        // }
+     
         this.confirmpassword="",
         this.password=await bcrypt.hash(this.password,12);
         next();
 });
+userSchema.methods.isModified=function(){
+        return Boolean(this.resetToken);
+}
 const _=Mongoose.model("users",userSchema);
 module.exports=_;
