@@ -22,17 +22,17 @@ const Navbar = () => {
 
             </ul>
         </nav>
-        <div className="flex justify-around items-center min-w-[520px] bg-gray-100 rounded-md valid:bg-white">
+        <div className="flex justify-around  items-end min-w-[520px] bg-gray-100 rounded-md valid:bg-white">
         <i className="fa-solid fa-magnifying-glass w-[10%] px-4 text-gray-400"></i>
             <input placeholder="Search for product,branchs and more" className="w-[100%] bg-transparent p-2 focus:outline-0"/>
         </div>
         <div className="min-w-[200px] min-h-[50px]">
             <ul className="absolute flex justify-center gap-x-6 items-center">
-                <li className="relative flex flex-col items-center hover:border-b-4 hover:border-red-500 profile--bottom">
+                <li className="relative pb-8 flex flex-col border-b-4 border-transparent items-center hover:hover:border-red-500 profile--bottom">
                     
                     <i className="fa-regular fa-user"></i>
                     <span className="font-bold text-[13px] text-gray-800">Profile</span>
-                    <div className="absolute top-[70px] bg-white p-2 hidden hover:block divide-y hover--profile--content">                    
+                    <div className="absolute top-[70px] bg-white border p-2 hidden hover:block divide-y hover--profile--content">                    
                         <div className="min-w-[250px] text-[13px] m-3">
                             <h1 className="font-bold">Welcome</h1>
                             <p className=" whitespace-nowrap">To access account and manage orders</p>
@@ -57,16 +57,18 @@ const Navbar = () => {
                     </div> 
                 </li>
       
-                <li className="relative flex flex-col items-center ">
-                  
+                <li className="relative pb-9 ">
+                    <Link className="flex flex-col items-center">
                         <i className="fa-regular fa-heart"></i>
                         <span className="font-bold text-[13px] text-gray-800">WishList</span>
+                    </Link>
               
                 </li>
-                <li className="relative flex flex-col items-center " >
-                   
+                <li className="relative  pb-9" >
+                        <Link className="flex flex-col items-center">
                         <i className="fa-solid fa-bag-shopping"></i>
                         <span className="font-bold text-[13px] text-gray-800">Bag</span>
+                        </Link>
                
                 </li>
             </ul>
