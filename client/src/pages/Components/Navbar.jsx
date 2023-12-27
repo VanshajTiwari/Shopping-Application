@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "./../../assets/img/logo-myntra.png";
 
 
@@ -6,8 +7,9 @@ const Navbar = () => {
   return (
     <header className=" z-20 bg-white min-w-[100vw] flex  justify-around items-center py-5 px-4 shadow-md fixed top-0">
         <div className="">
-        
+            <Link to="/">
             <img src={`${logo}`} alt="logo" width="130"/>
+            </Link>
         </div>
         <nav>
             <ul  className="flex items-center font-bold text-gray-700 text-[13px]">
@@ -26,23 +28,46 @@ const Navbar = () => {
         </div>
         <div className="min-w-[200px] min-h-[50px]">
             <ul className="absolute flex justify-center gap-x-6 items-center">
-                <li>
-                    <a className="relative flex flex-col items-center pb-8 hover:border-b-4 hover:border-red-500"  href="#">
-                        <i className="fa-regular fa-user"></i>
-                        <span className="font-bold text-[13px] text-gray-800">Profile</span>
-                        </a>
+                <li className="relative flex flex-col items-center hover:border-b-4 hover:border-red-500 profile--bottom">
+                    
+                    <i className="fa-regular fa-user"></i>
+                    <span className="font-bold text-[13px] text-gray-800">Profile</span>
+                    <div className="absolute top-[70px] bg-white p-2 hidden hover:block divide-y hover--profile--content">                    
+                        <div className="min-w-[250px] text-[13px] m-3">
+                            <h1 className="font-bold">Welcome</h1>
+                            <p className=" whitespace-nowrap">To access account and manage orders</p>
+                            <div className="my-6">
+                            <Link to="/login" className="text-pink-500 font-semibold border px-3 py-2">LOGIN/SIGNUP</Link>
+                            </div>
+                        </div>
+                        <div className="flex flex-col text-gray-600 text-[13px] gap-y-2 m-3 py-1">
+                            <Link className="hover:underline">Orders</Link>
+                            <Link className="hover:underline">Wishlist</Link>
+                            <Link  className="hover:underline">Gift Cards</Link>
+                            <Link className="hover:underline">Contact Us</Link>
+                            <Link className="hover:underline">Myntra Insider</Link>
+                        </div>
+                        <div className="flex flex-col text-gray-600 text-[13px] gap-y-2 m-3 py-1">
+                            <Link className="hover:underline">Myntra Credit</Link>
+                            <Link className="hover:underline">Coupons</Link>
+                            <Link className="hover:underline">Saved Cards</Link>
+                            <Link className="hover:underline">Saved VPA</Link>
+                            <Link className="hover:underline">Saved addresses</Link>
+                        </div>
+                    </div> 
                 </li>
-                <li>
-                    <a className="relative flex flex-col items-center pb-8" href="#">
+      
+                <li className="relative flex flex-col items-center ">
+                  
                         <i className="fa-regular fa-heart"></i>
                         <span className="font-bold text-[13px] text-gray-800">WishList</span>
-                        </a>
+              
                 </li>
-                <li>
-                    <a className="relative flex flex-col items-center pb-8" href="#">
+                <li className="relative flex flex-col items-center " >
+                   
                         <i className="fa-solid fa-bag-shopping"></i>
                         <span className="font-bold text-[13px] text-gray-800">Bag</span>
-                    </a>
+               
                 </li>
             </ul>
         </div>

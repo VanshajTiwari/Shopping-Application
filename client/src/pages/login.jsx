@@ -1,5 +1,5 @@
 import Navbar from "./Components/Navbar"
-
+import { Link } from "react-router-dom";
 
 const Login=()=>{
     return(
@@ -28,7 +28,7 @@ const Login=()=>{
                                 </form>
                                 <div className="w-full flex justify-start items-start" >
                                     <span>New to this page ? &nbsp;</span>
-                                    <a href="" className="text-blue-700 underline"> click here</a>
+                                    <Link to="/signup" className="text-blue-700 underline"> click here</Link>
                                 </div>
                             </div>
                         </div>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 
 const Signup = () => {
@@ -35,7 +36,7 @@ const Signup = () => {
                     className="text-black text-base pl-4 h-14 border-b-4 focus:bg-gray-200 outline-0 focus:border-yellow-400"
                   />
                 </div>
-                <div className="flex flex-col text-[20px] mb-5">
+                <div className="flex flex-col text-[20px] mb-5 col-span-2">
                   <label htmlFor="email" className="font-bold">
                     Email
                   </label>
@@ -57,7 +58,7 @@ const Signup = () => {
                     className="text-black text-base pl-4 h-14 border-b-4 focus:bg-gray-200 outline-0 focus:border-yellow-400"
                   />
                 </div>
-                <div className="flex flex-col text-[20px] mb-8 col-span-2">
+                <div className="flex flex-col text-[20px] mb-5">
                   <label htmlFor="confirmPassword" className="font-bold">
                   Confirm Password
                   </label>
@@ -77,10 +78,10 @@ const Signup = () => {
                 </div>
               </form>
               <div className="w-full flex justify-start items-start">
-                <span>New to this page? &nbsp;</span>
-                <a href="" className="text-blue-700 underline">
+                <span>Already Registered ? &nbsp;</span>
+                <Link to="/login" className="text-blue-700 underline">
                   Click here
-                </a>
+                </Link>
               </div>
             </div>
           </div>
