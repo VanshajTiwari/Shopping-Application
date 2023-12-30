@@ -17,16 +17,23 @@ require("./Controllers/Auth/passport")(passport);
 
 App.use(cookieParser());
 App.use(Express.json());
-App.use(morgan('tiny'));
+App.use(morgan('dev'));
 
-
-
+App.use("/",Express.static("./"));
+App.use(Express.urlencoded({extended:false}));
 //
 const userRoutes=require("./Routes/userRoutes");
 const productRoutes=require('./Routes/productsRoutes');
 const reviewRoutes=require('./Routes/reviewRoutes');
 //Routes
 
+
+
+
+const upload=require("./utils/uploadImage");
+App.post("/image",(req,res,next)=>{req.dest="users";next();},upload.single('files'),(Req,res)=>{
+    res.redirect("/index.html");
+})
 App.use("/users",userRoutes);
 App.use("/products",productRoutes);
 App.use("/reviews",reviewRoutes);

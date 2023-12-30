@@ -14,7 +14,7 @@ const transporter=nodemailer.createTransport({
 // console.log(options.html);
 //2 Define the email options
 const mailOption={
-    from :"Vanshaj Tiwari <hello@jonas.io>",
+    from :"Vanshaj Tiwari <vanshajtiwari62@gmail.com>",
     to: options.email,
     subject:options.subject, 
     text:options.message,

@@ -2,7 +2,7 @@ const Express=require('express');
 const userModel=require('./../models/usersSchema');
 const passport = require('passport');
 const Route=Express();
-const sendEmail=require("./../email");
+const sendEmail=require("../utils/email");
 const crypto=require('crypto');
 const Authcontrollers=require("./../Controllers/Auth/AuthControllers");
 Route
