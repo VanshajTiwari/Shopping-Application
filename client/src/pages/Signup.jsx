@@ -1,7 +1,25 @@
 import { Link } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-
+import { useEffect } from "react";
+import {signup_api} from "./../Api/serverApi";
+import { useQuery } from "@tanstack/react-query";
 const Signup = () => {
+  useEffect(()=>{
+    document.querySelector(".form--signup").addEventListener('submit',async e=>{
+      e.preventDefault()
+    const data={
+        name:e.target[0].value,
+        username:e.target[1].value,
+        email:e.target[2].value,
+        password:e.target[3].value,
+        confirmpassword:e.target[4].value
+    }
+    const x=useQuery({
+      queryKey:[date.now()],
+      queryFn:signup_api
+    });
+    })
+  },[]);
   return (
     <div className="h-[100vh] max-w-full bg-pink-100">
       <Navbar />
@@ -13,7 +31,7 @@ const Signup = () => {
               <div className="bg-white h-1 rounded mt-[-10px]"></div>
             </div>
             <div className="m-3">
-              <form action="" className="grid grid-cols-2 gap-4 items-center">
+              <form action="" className="grid grid-cols-2 gap-4 items-center form--signup">
                 <div className="flex flex-col text-[20px] mb-5">
                   <label htmlFor="fullName" className="font-bold">
                     Full Name

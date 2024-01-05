@@ -30,7 +30,8 @@ const userSchema=new Mongoose.Schema({
             },
             message:"Password Mismatched"
         },
-        select:false
+        select:false,
+        required:[true,"confirmpassword fields is Empty"]
     },
     phone:[{
         type:Number,
@@ -95,8 +96,8 @@ userSchema.pre('save',async function(next){
         this.password=await bcrypt.hash(this.password,12);
         next();
 });
-userSchema.methods.isModified=function(){
+userSchema.method('isModified',function(){
         return Boolean(this.resetToken);
-}
+},{suppressWarning:true});
 const _=Mongoose.model("users",userSchema);
 module.exports=_;

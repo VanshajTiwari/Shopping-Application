@@ -14,6 +14,7 @@ Route
     await userModel.create(req.body);
     res.status(200).send("DOne");
 }).post("/login",passport.authenticate("local"),async (req,res)=>{
+    console.log(req.body);
     res.status(200).send(req.user);
 }).post("/resetPassword",async (req,res)=>{
     const {email}=req.body;

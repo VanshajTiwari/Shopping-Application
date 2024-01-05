@@ -1,12 +1,15 @@
 const Express=require('express');
 const morgan=require('morgan');
 const App=Express();
+const cors=require('cors');
 const cookieParser=require('cookie-parser');
 const passport=require('passport');
 const expressSession=require('express-session');
-
+const dotenv=require('dotenv');
+dotenv.config({path:"config.env"});
+App.use(cors());
 App.use(expressSession({
-    secret:"veryTOpSecret",
+    secret:process.env.SECRET_EXPRESS,
     resave:false,
     saveUninitialized:false
 }));
@@ -19,7 +22,7 @@ App.use(cookieParser());
 App.use(Express.json());
 App.use(morgan('dev'));
 
-App.use("/",Express.static("./"));
+App.use("/",Express.static("./public"));
 App.use(Express.urlencoded({extended:false}));
 //
 const userRoutes=require("./Routes/userRoutes");

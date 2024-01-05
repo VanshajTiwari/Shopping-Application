@@ -28,7 +28,7 @@ const Navbar = () => {
         </div>
         <div className="min-w-[200px] min-h-[50px]">
             <ul className="absolute flex justify-center gap-x-6 items-center">
-                <li className="relative pb-8 flex flex-col border-b-4 border-transparent items-center hover:hover:border-red-500 profile--bottom">
+                <li className="relative pb-8 flex flex-col border-b-4 border-transparent items-center hover:hover:border-pink-500 profile--bottom">
                     
                     <i className="fa-regular fa-user"></i>
                     <span className="font-bold text-[13px] text-gray-800">Profile</span>
