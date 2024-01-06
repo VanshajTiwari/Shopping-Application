@@ -2,16 +2,22 @@ import axios from "axios";
 
 
 const BASE_URL="http://127.0.0.1:8081"
-const signup_api=async (data)=>await axios({
+const signup_api=async (datum)=>{
+    
+    const {data}=await axios({
     method:'post',
     url:`${BASE_URL}/users/signup`,
-    data:data
-});
-const login_api=async (data)=>await axios({
+    data:datum
+})
+    return data;
+};
+async function login_api(datum){const {data}=await axios({
     method:'POST',
     url:`${BASE_URL}/users/login`,
-    data:{username:data.username,password:data.password}
-});
+    data:datum});
+
+    return data;
+};
 const forgotPassword_api=async(data)=>axios({
     method:'post',
     url:`${BASE_URL}/`,
