@@ -29,9 +29,9 @@ const ShopByCate = () => {
   
   return (
     <div className="flex flex-wrap justify-center">
-    {images.map(__img=>{
+    {images.map((__img,idx)=>{
       return(
-      <div className="m-1" key={__img}>
+      <div className="m-1" key={idx}>
           <div className="max-w-[238px] min-h-[267px] bg-pink-400 overflow-hidden">
               <img  src={__img} alt="photo" />
           </div>

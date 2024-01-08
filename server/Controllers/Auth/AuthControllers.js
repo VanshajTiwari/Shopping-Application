@@ -1,5 +1,5 @@
-const sendEmail=require("../utils/email");
-const userModel=require('./../models/usersSchema');
+const sendEmail=require("../../utils/email");
+const userModel=require("../../models/usersSchema");
 const crypto=require('crypto');
 exports.loggedin=(req,res,next)=>{
     if(!req.user)
@@ -10,12 +10,12 @@ exports.loggedin=(req,res,next)=>{
 
 
 exports.Signup=async(req,res)=>{
-    await userModel.create(req.body);
-    res.status(200).send("DOne");
+    const user=await userModel.create(req.body);
+    res.status(200).json({status:"success",data:user});
 };
 
 exports.Login=async(req,res)=>{
-    console.log(req.body);
+    res.cookie('sessionID',req.sessionID);
     res.status(200).json({status:"success",data:req.user});
 };
 exports.forgotPasword=async (req,res)=>{
@@ -36,7 +36,6 @@ exports.forgotPasword=async (req,res)=>{
 };
 
 exports.resetPassword=async (req,res)=>{
-    console.log(req.params);
        const {password,confirmpassword}=req.body;
        console.log({password,confirmpassword}); 
        const token=req.params.token;

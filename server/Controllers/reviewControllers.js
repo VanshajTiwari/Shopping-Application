@@ -15,4 +15,4 @@ exports.addNewReview=async (req,res)=>{
     const newReview=await reviewModel.create({user:user__id,product:product__id,review,rating});
     res.status(201).json({status:"success",result:{newReview}});
 
-}
+} 

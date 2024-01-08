@@ -11,12 +11,24 @@ const signup_api=async (datum)=>{
 })
     return data;
 };
-async function login_api(datum){const {data}=await axios({
+async function getUsers(){
+        
+    const {data}=await axios({
+       
+        method:'GET',
+        url:`${BASE_URL}/users/`,
+    })
+        sessionStorage("users",data.data);
+        return data.data;
+};
+
+async function login_api(datum){const data=await axios({
+    withCredentials:true,
     method:'POST',
     url:`${BASE_URL}/users/login`,
     data:datum});
-
-    return data;
+    sessionStorage.setItem("user",JSON.stringify(data.data.data));
+    return data.data.data;
 };
 const forgotPassword_api=async(data)=>axios({
     method:'post',
@@ -49,4 +61,4 @@ const placeOrder=async(data)=>axios({});
 const uploadProduct=async(data)=>axios({});
 
 
-export {login_api,signup_api};
+export {login_api,signup_api,getUsers};

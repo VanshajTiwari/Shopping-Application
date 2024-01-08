@@ -1,4 +1,4 @@
-const productModel=require('./../models/product');
+const productModel=require("./../models/product");
 exports.getAllproducts=async (req,res)=>{
     const products=await productModel.find({}).populate("sellers");
     res.status(200).json({status:"success",result:{products}});

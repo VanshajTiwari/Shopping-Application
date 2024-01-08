@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import logo from "./../../assets/img/logo-myntra.png";
-
-
+import UserContext from "../../ContextAPI";
+import { useContext } from "react";
 const Navbar = () => {
-
+    const {user,setUser}=useContext(UserContext);
+    const navigate=useNavigate();
+    function handleLogout(){
+        setUser(()=>"");
+        sessionStorage.removeItem("user")
+        navigate("/");
+    }
   return (
     <header className=" z-20 bg-white min-w-[100vw] flex  justify-around items-center py-5 px-4 shadow-md fixed top-0">
         <div className="">
@@ -28,6 +34,16 @@ const Navbar = () => {
         </div>
         <div className="min-w-[200px] min-h-[50px]">
             <ul className="absolute flex justify-center gap-x-6 items-center">
+                {user?<><li className="whitespace-nowrap capitalize relative pb-8 flex flex-col border-b-4 border-transparent items-center hover:hover:border-pink-500 profile--bottom">
+                    <i className="fa-regular fa-user"></i>
+                    <span className="font-bold text-[13px] text-gray-800">{user.name}</span>
+                    <div className="absolute top-[70px] bg-white border flex justify-center items-center p-2 hidden hiver:block divide-y hover--profile--content">
+                        <div className="min-w-[50px] text-[13px] m-3">
+                            <Link to="/" onClick={handleLogout} className="text-pink-500 font-semibold border px-3 py-2">Logout</Link>
+                        </div>
+                    </div>
+                </li></>:
+
                 <li className="relative pb-8 flex flex-col border-b-4 border-transparent items-center hover:hover:border-pink-500 profile--bottom">
                     
                     <i className="fa-regular fa-user"></i>
@@ -55,7 +71,7 @@ const Navbar = () => {
                             <Link className="hover:underline">Saved addresses</Link>
                         </div>
                     </div> 
-                </li>
+                </li>}
       
                 <li className="relative pb-9 ">
                     <Link className="flex flex-col items-center">

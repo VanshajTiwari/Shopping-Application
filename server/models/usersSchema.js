@@ -3,7 +3,8 @@ const bcrypt=require('bcryptjs');
 const crypto=require('crypto');
 const userSchema=new Mongoose.Schema({
     name:{
-        type:String
+        type:String,
+        trim:true,
     },
     username:{
         type:String
@@ -76,7 +77,6 @@ const userSchema=new Mongoose.Schema({
     toObject:{virtuals:true}
 });
 userSchema.methods.checkPassword=async function(candPass){
-    console.log(await bcrypt.compare(candPass,this.password));
     return await bcrypt.compare(candPass,this.password);
 }
 userSchema.methods.createResetToken=function(){

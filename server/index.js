@@ -7,11 +7,19 @@ const passport=require('passport');
 const expressSession=require('express-session');
 const dotenv=require('dotenv');
 dotenv.config({path:"config.env"});
-App.use(cors());
+App.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true
+}));
 App.use(expressSession({
     secret:process.env.SECRET_EXPRESS,
     resave:false,
-    saveUninitialized:false
+    saveUninitialized:false,
+    cookie:{
+        secure:false,
+        httpOnly:true,
+        sameSite:'strict'
+    }
 }));
 App.use(passport.initialize());
 App.use(passport.session());
