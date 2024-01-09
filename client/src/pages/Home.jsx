@@ -1,11 +1,20 @@
+import { useQuery } from "@tanstack/react-query"
 import Footer from "./Components/Footer"
 import Hero from "./Components/Hero"
 import Navbar from "./Components/Navbar"
 import GlobalBrands from "./Components/global--brand"
 import WorthyBrands from "./Components/model--wothy"
 import ShopByCate from "./Components/shop-by-cate"
+import { getProducts } from "../Api/serverApi"
 
 const Home = () => {
+    const {data,error,isLoading}=useQuery({
+        queryKey:['products'],
+        queryFn:getProducts
+    });
+    if(isLoading){
+       return <div></div>
+    }
   return (
     <div>
         <Navbar/>

@@ -28,23 +28,23 @@ const Navbar = () => {
 
             </ul>
         </nav>
-        <div className="flex justify-around  items-end min-w-[520px] bg-gray-100 rounded-md valid:bg-white">
-        <i className="fa-solid fa-magnifying-glass w-[10%] px-4 text-gray-400"></i>
+        <div className="flex justify-around  items-center min-w-[520px] bg-gray-100 rounded-md valid:bg-white">
+            <i className="fa-solid fa-magnifying-glass w-[10%] px-4 text-gray-400"></i>
             <input placeholder="Search for product,branchs and more" className="w-[100%] bg-transparent p-2 focus:outline-0"/>
         </div>
         <div className="min-w-[200px] min-h-[50px]">
             <ul className="absolute flex justify-center gap-x-6 items-center">
                 {user?<><li className="whitespace-nowrap capitalize relative pb-8 flex flex-col border-b-4 border-transparent items-center hover:hover:border-pink-500 profile--bottom">
-                    <i className="fa-regular fa-user"></i>
-                    <span className="font-bold text-[13px] text-gray-800">{user.name}</span>
-                    <div className="absolute top-[70px] bg-white border flex justify-center items-center p-2 hidden hiver:block divide-y hover--profile--content">
+                    <Link to="/profile" className="flex flex-col items-center justify-center"><i className="fa-regular fa-user"></i>
+                    <span className="font-bold text-[13px] text-gray-800">{user.name}</span></Link>
+                    <div className="absolute top-[70px] bg-white border justify-center items-center p-2 hidden hover:block divide-y hover--profile--content">
                         <div className="min-w-[50px] text-[13px] m-3">
                             <Link to="/" onClick={handleLogout} className="text-pink-500 font-semibold border px-3 py-2">Logout</Link>
                         </div>
                     </div>
                 </li></>:
 
-                <li className="relative pb-8 flex flex-col border-b-4 border-transparent items-center hover:hover:border-pink-500 profile--bottom">
+                <li className="relative pb-8 flex flex-col border-b-4 border-transparent items-center hover:border-pink-500 profile--bottom">
                     
                     <i className="fa-regular fa-user"></i>
                     <span className="font-bold text-[13px] text-gray-800">Profile</span>

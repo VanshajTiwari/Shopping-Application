@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import img_1 from "./../../assets/Home/cover-imgs/img--1.jpg";
+import { Link } from "react-router-dom";
 const Hero = () => {
     useEffect(()=>{
         let slider__no=1;
@@ -23,11 +24,11 @@ const Hero = () => {
         <div className="min-w-[100%] min-h-[70vh] max-h-[70vh] bg-red-500 overflow-hidden flex hero--collection">
             <div className="slider flex transition-all duration-1000">
                 {/*<img src="" alt="photo"/>*/}
-                <div className="min-w-[100vw] min-h-[100%]bg-green-500"><img src={img_1} className="w-full h-full lg:object-fill object-cover"/></div>
-                <div className="min-w-[100%] min-h-[100%] bg-blue-500"><img src={img_1}  className="w-full h-full lg:object-fill  object-cover"/></div>
-                <div className="min-w-[100%] min-h-[100%] bg-pink-500"><img src={img_1}  className="w-full h-full lg:object-fill  object-cover"/></div>
-                <div className="min-w-[100%] min-h-[100%] bg-purple-500"><img src={img_1}  className="w-full h-full lg:object-fill  object-cover"/></div>
-                <div className="min-w-[100%] min-h-[100%] bg-orange-500"><img src={img_1}  className="w-full h-full lg:object-fill  object-cover"/></div>
+                <Link to="products/658804aa49b613d67b0d31e3" className="min-w-[100vw] min-h-[100%]bg-green-500"><img src={img_1} className="w-full h-full lg:object-fill object-cover"/></Link>
+                <Link to="products/658804aa49b613d67b0d31e4" className="min-w-[100%] min-h-[100%] bg-blue-500"><img src={img_1}  className="w-full h-full lg:object-fill  object-cover"/></Link>
+                <Link to="products/658804aa49b613d67b0d31e8" className="min-w-[100%] min-h-[100%] bg-pink-500"><img src={img_1}  className="w-full h-full lg:object-fill  object-cover"/></Link>
+                <Link to="products/658804aa49b613d67b0d31e9" className="min-w-[100%] min-h-[100%] bg-purple-500"><img src={img_1}  className="w-full h-full lg:object-fill  object-cover"/></Link>
+                <Link to="products/658804aa49b613d67b0d31e7" className="min-w-[100%] min-h-[100%] bg-orange-500"><img src={img_1}  className="w-full h-full lg:object-fill  object-cover"/></Link>
             </div>
         </div>
         <div className="relative flex justify-center gap-x-1 my-2">

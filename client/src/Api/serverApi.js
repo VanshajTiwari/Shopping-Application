@@ -21,7 +21,21 @@ async function getUsers(){
         sessionStorage("users",data.data);
         return data.data;
 };
-
+async function getProducts(){
+    const {data}=await axios({
+        method:"get",
+        url:`${BASE_URL}/products/all`
+    });
+    return data.data.products;
+}
+async function getProduct(id){
+    const {data}=await axios({
+        method:"get",
+        url:`${BASE_URL}/products/get/${id}`
+    });
+    
+    return data.data.product;
+}
 async function login_api(datum){const data=await axios({
     withCredentials:true,
     method:'POST',
@@ -61,4 +75,4 @@ const placeOrder=async(data)=>axios({});
 const uploadProduct=async(data)=>axios({});
 
 
-export {login_api,signup_api,getUsers};
+export {login_api,signup_api,getUsers,getProducts,getProduct};

@@ -1,19 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import Navbar from "./Components/Navbar"
 import { Link, useNavigate } from "react-router-dom";
-import {getUsers, login_api} from "./../Api/serverApi";
-import { useQueries, useQuery } from "@tanstack/react-query";
+import {login_api} from "./../Api/serverApi";
 import UserContext from "../ContextAPI";
 
 const Login=()=>{
     const {user,setUser}=useContext(UserContext);
     const navigate=useNavigate();
     const [datum,setData]=useState({username:"vanshajt01",password:"admin@123"});
-    // const {data,error}=useQuery({
-    //     queryKey:["users"],
-    //     queryFn:()=>getUsers(),
-    //     enabled:true
-    // });
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -21,7 +15,6 @@ const Login=()=>{
                 username:e.target[0].value,
                 password:e.target[1].value
             }
-            // setData(data);
             setUser(await login_api(data));
             navigate("/");
         };
