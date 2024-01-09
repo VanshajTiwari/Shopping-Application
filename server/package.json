@@ -4,7 +4,8 @@
   "description": "this is server for myntra Clone",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon server.js"
+    "test": "nodemon server.js",
+    "build":"npm i"
   },
   "author": "Vanshaj Tiwari",
   "license": "ISC",
