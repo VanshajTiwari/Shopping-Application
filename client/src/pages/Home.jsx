@@ -6,14 +6,16 @@ import GlobalBrands from "./Components/global--brand"
 import WorthyBrands from "./Components/model--wothy"
 import ShopByCate from "./Components/shop-by-cate"
 import { getProducts } from "../Api/serverApi"
-
+import Cookies from 'universal-cookie';
 const Home = () => {
+    const cookies=new Cookies();
+    console.log(cookies.cookies['connect.sid']);
     const {data,error,isLoading}=useQuery({
         queryKey:['products'],
         queryFn:getProducts
     });
     if(isLoading){
-       return <div></div>
+       return <div className="w-full h-screen bg-red-400 flex justify-center items-center"><div className="loader"></div></div>
     }
   return (
     <div>

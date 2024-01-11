@@ -78,7 +78,7 @@ const Footer = () => {
         <div>
             <h1 className="font-bold text-[14px] my-5">POPULAR SEARCHES</h1>
             <div  className="text-gray-600 space-x-2 text-[13px]">
-                    {interactLink.map((ele,idx)=><><a href="#" key={idx} >{ele}</a> | </>)}
+                    {interactLink.map((ele,idx)=><div key={idx}><a href="#" key={idx} >{ele}</a> | </div>)}
             </div>
         </div>
         <div className="flex justify-between my-6 text-gray-600">

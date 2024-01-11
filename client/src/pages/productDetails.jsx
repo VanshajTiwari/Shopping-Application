@@ -11,11 +11,9 @@ const ProductDetails=()=>{
         queryFn:()=>getProduct(id),
         enabled:true
     });
-    if(isLoading||error){
-        console.log(error);
-        return <div>Loading OR ERROR</div>
+    if(isLoading){
+        return <div className="w-full h-screen bg-red-400 flex justify-center items-center"><div className="loader"></div></div>
     }
-    console.log(data.sellers);
     return(
         <div>
             <Navbar/>
@@ -122,7 +120,7 @@ const ProductDetails=()=>{
                             </div>
                             <div className="flex">
                                 <span>Seller : </span>&nbsp;
-                                {data.sellers.map(ele=><span className="text-pink-500 font-bold capitalize" key={ele.id}>{ele.name}</span>)}
+                                {data.sellers.map((ele,idx)=><span className="text-pink-500 font-bold capitalize" key={idx}>{ele.name}</span>)}
                             </div>
                             <div>
                                 <span className="font-bold">View Supplier Information</span>
@@ -137,7 +135,7 @@ const ProductDetails=()=>{
                         <div className="w-full border max-h-0"/>
                    </div>
                    <div>
-                        {data.review.length==0?<div>No Reviews</div>:<div className="flex flex-wrap m-12">{data.review.map((review,idx)=><div className="bg-gray-300 rounded-md p-3 m-3">
+                        {data.review.length==0?<div className="text-center my-4">- - No Reviews - -</div>:<div className="flex flex-wrap m-12">{data.review.map((review,idx)=><div className="bg-gray-300 rounded-md p-3 m-3" key={idx}>
                             <h1 className=" capitalize">Consumer: <strong>{review.user.name}</strong></h1>
                             <p>Review: {review.review}</p>
                             <p>Rating: {review.rating}</p>
@@ -148,6 +146,5 @@ const ProductDetails=()=>{
             </div>
             <Footer/>
         </div>
-    )
-}
+    )};
 export default ProductDetails;

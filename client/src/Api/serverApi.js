@@ -1,6 +1,4 @@
 import axios from "axios";
-
-
 const BASE_URL="http://127.0.0.1:8081"
 const signup_api=async (datum)=>{
     
@@ -33,15 +31,28 @@ async function getProduct(id){
         method:"get",
         url:`${BASE_URL}/products/get/${id}`
     });
-    
+    console.log(data);
     return data.data.product;
+}
+async function getUserWishList(id){
+    try{
+
+        const {data}=await axios({
+            method:'get',
+            url:`${BASE_URL}/users/getwishList/${id}`
+        });
+        return data.data;
+    }catch(err){
+        console.log(`ERROR ${err.message}`);
+    }
 }
 async function login_api(datum){const data=await axios({
     withCredentials:true,
     method:'POST',
     url:`${BASE_URL}/users/login`,
     data:datum});
-    sessionStorage.setItem("user",JSON.stringify(data.data.data));
+    console.log(data);
+    document.cookie=`connect.sid=${data.data.session}`;
     return data.data.data;
 };
 const forgotPassword_api=async(data)=>axios({
@@ -75,4 +86,4 @@ const placeOrder=async(data)=>axios({});
 const uploadProduct=async(data)=>axios({});
 
 
-export {login_api,signup_api,getUsers,getProducts,getProduct};
+export {login_api,signup_api,getUsers,getProducts,getProduct,getUserWishList};

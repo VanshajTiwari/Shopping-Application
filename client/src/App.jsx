@@ -9,9 +9,10 @@ import {useState } from 'react';
 import UserContext from './ContextAPI';
 import Profile from './pages/profile';
 import ProductDetails from './pages/productDetails';
+import Wish from './pages/wishList';
 function App() {
   ;
-  const [user,setUser]=useState(JSON.parse(sessionStorage.getItem("user")));
+  const [user,setUser]=useState();
   const queryClient=new QueryClient({
     defaultOptions:{
       queries:{
@@ -29,6 +30,7 @@ function App() {
               <Route path="/login" element={<Login/>}/>
               <Route path="/signup" element={<Singup/>}/>
               <Route path="/products/:id" element={<ProductDetails/>}/>
+              <Route path="/user/wishlist" element={<Wish/>} />
             </Routes>
         </BrowserRouter>
         <ReactQueryDevtools initialIsOpen={false}>

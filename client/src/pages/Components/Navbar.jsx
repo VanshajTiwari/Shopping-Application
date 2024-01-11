@@ -74,14 +74,14 @@ const Navbar = () => {
                 </li>}
       
                 <li className="relative pb-9 ">
-                    <Link className="flex flex-col items-center">
+                    <Link to="/user/wishlist" className="flex flex-col items-center">
                         <i className="fa-regular fa-heart"></i>
                         <span className="font-bold text-[13px] text-gray-800">WishList</span>
                     </Link>
               
                 </li>
                 <li className="relative  pb-9" >
-                        <Link className="flex flex-col items-center">
+                        <Link to="/user/orders" className="flex flex-col items-center">
                         <i className="fa-solid fa-bag-shopping"></i>
                         <span className="font-bold text-[13px] text-gray-800">Bag</span>
                         </Link>

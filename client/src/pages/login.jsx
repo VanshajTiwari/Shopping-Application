@@ -5,7 +5,7 @@ import {login_api} from "./../Api/serverApi";
 import UserContext from "../ContextAPI";
 
 const Login=()=>{
-    const {user,setUser}=useContext(UserContext);
+    const {setUser}=useContext(UserContext);
     const navigate=useNavigate();
     const [datum,setData]=useState({username:"vanshajt01",password:"admin@123"});
 
