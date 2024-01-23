@@ -9,7 +9,6 @@ import { getProducts } from "../Api/serverApi"
 import Cookies from 'universal-cookie';
 const Home = () => {
     const cookies=new Cookies();
-    console.log(cookies.cookies['connect.sid']);
     const {data,error,isLoading}=useQuery({
         queryKey:['products'],
         queryFn:getProducts

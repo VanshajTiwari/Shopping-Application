@@ -1,5 +1,7 @@
 import axios from "axios";
-const BASE_URL="http://127.0.0.1:8081"
+
+axios.defaults.withCredentials=true;
+const BASE_URL="http://127.0.0.1:8080"
 const signup_api=async (datum)=>{
     
     const {data}=await axios({
@@ -47,43 +49,95 @@ async function getUserWishList(id){
     }
 }
 async function login_api(datum){const data=await axios({
-    withCredentials:true,
     method:'POST',
     url:`${BASE_URL}/users/login`,
     data:datum});
     console.log(data);
-    document.cookie=`connect.sid=${data.data.session}`;
     return data.data.data;
 };
 const forgotPassword_api=async(data)=>axios({
     method:'post',
-    url:`${BASE_URL}/`,
-    data:data
+    url:`${BASE_URL}/resetPassword`,
+    data:data,
+    
 });
-const resetPassword_api=async(data)=>axios({
+const updatePassword_api=async(id,data)=>axios({
     method:"post",
-    url:`${BASE_URL}/users/resetPassword`,
-    data:data
+    url:`${BASE_URL}/users/updatepassword/${id}`,
+    data:data,
+    
 });
 
-const addproducts_api=async(data)=>axios({
+const addproducts_api=async(id,data)=>await axios({
     method:"Post",
-    url:`${BASE_URL}/`,
-    data:data
+    url:`${BASE_URL}/${id}`,
+    data:data,
+    
 });
 
-const removeProducts_api=async(data)=>axios({});
-
-const addToWishlist_api=async(data)=>axios({});
-const removeFromWishlist_api=async(data)=>axios({});
-
-const addToCart_api=async(data)=>axios({});
-const removeFromCart_api=async(data)=>axios({});
-
-const placeOrder=async(data)=>axios({});
+const removeProducts_api=async(data)=>await axios({});
 
 
-const uploadProduct=async(data)=>axios({});
+///////////////////  wishlist__api
+const addToWishlist_api=async(id)=>{
+    const response=axios({
+    method:"POST",
+    url:`${BASE_URL}/addtowishlist/${id}`,
+    
+    });
+    console.log(id)
+    return response;
+};
+const getWishlist=async()=>{
+    const response=await axios({
+        method:"GET",
+        url:`${BASE_URL}/wishlist/`,
+        
+    })
+    return response.data;
+};
+
+const removeFromWishlist_api=async(id)=>{
+    const res=await axios({
+    method:"DELETE",
+    url:`${BASE_URL}/wishlist/remove/${id}`,
+    
+})
+    return res;
+};
+////////////////
+
+///////////////     CART__api
+const addToCart_api=async(id)=>{
+    const response=axios({
+    method:"POST",
+    url:`${BASE_URL}/addtocart/${id}`,
+    
+    });
+    return response;
+};
+const getcart=async()=>{
+    const response=await axios({
+        method:"GET",
+        url:`${BASE_URL}/cartlist`,
+        
+    })
+    return response.data;
+}
+const removeFromCart_api=async(data)=>{
+    const res=axios({
+        method:"DELETE",
+        url:`${BASE_URL}/cart/remove/${id}`,
+        
+    })
+    return res;
+};
+
+////////////////////
+// const placeOrder=async(data)=>axios({});
 
 
-export {login_api,signup_api,getUsers,getProducts,getProduct,getUserWishList};
+// const uploadProduct=async(data)=>axios({});
+
+
+export {login_api,signup_api,getUsers,getProducts,getProduct,getUserWishList,addToWishlist_api,addToCart_api};

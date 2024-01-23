@@ -1,9 +1,9 @@
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { Link, useParams } from "react-router-dom";
-import img1 from "./../assets/img/shirt.jpg"
 import { useQuery } from "@tanstack/react-query";
 import { getProduct } from "../Api/serverApi";
+import { addToWishlist_api,addToCart_api } from "../Api/serverApi";
 const ProductDetails=()=>{
     const {id}=useParams();
     const {data,error,isLoading}=useQuery({
@@ -11,6 +11,12 @@ const ProductDetails=()=>{
         queryFn:()=>getProduct(id),
         enabled:true
     });
+    const handlewishList=()=>{
+        addToWishlist_api(data.id);
+    }
+    const handleOrder=()=>{
+        addToCart_api(data.id);
+    }
     if(isLoading){
         return <div className="w-full h-screen bg-red-400 flex justify-center items-center"><div className="loader"></div></div>
     }
@@ -22,8 +28,8 @@ const ProductDetails=()=>{
                     <Link href="">Home/Clothing/Men Clothing/Shirts/<strong>{data.productname} &gt; {data.brand}</strong></Link>
                 </div>
                 <div className="flex">
-                    <div className="w-[60%] m-12">
-                        <img src={img1} alt="" />
+                    <div className="w-[60%] m-12 flex justify-center">
+                        <img src={"http://127.0.0.1:8080/"+data.images[0]} alt="" />
                     </div>
                     <div className="w-[50%] m-12">
                         <div className="divide-y">
@@ -50,8 +56,8 @@ const ProductDetails=()=>{
 
                                 </div>
                                 <div className="space-x-4 mb-8">
-                                    <button className="bg-pink-400 p-3 text-17px min-w-[300px] rounded-md font-bold text-white">ADD TO BAG</button>
-                                    <button className="border p-3 text-17px min-w-[300px] rounded-md font-bold">WISHLIST</button>
+                                    <button className="bg-pink-400 p-3 text-17px min-w-[300px] rounded-md font-bold text-white" onClick={handleOrder}>ADD TO BAG</button>
+                                    <button className="border p-3 text-17px min-w-[300px] rounded-md font-bold" onClick={handlewishList}>WISHLIST</button>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +142,7 @@ const ProductDetails=()=>{
                    </div>
                    <div>
                         {data.review.length==0?<div className="text-center my-4">- - No Reviews - -</div>:<div className="flex flex-wrap m-12">{data.review.map((review,idx)=><div className="bg-gray-300 rounded-md p-3 m-3" key={idx}>
-                            <h1 className=" capitalize">Consumer: <strong>{review.user.name}</strong></h1>
+                            <h1 className=" capitalize">Consumer: <strong>{review.user.username}</strong></h1>
                             <p>Review: {review.review}</p>
                             <p>Rating: {review.rating}</p>
                             </div>)}

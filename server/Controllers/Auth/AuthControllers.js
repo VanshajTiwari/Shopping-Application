@@ -1,6 +1,7 @@
 const sendEmail=require("../../utils/email");
 const userModel=require("../../models/usersSchema");
 const crypto=require('crypto');
+const bscrypt=require("bcryptjs");
 exports.loggedin=(req,res,next)=>{
     if(!req.user)
        return res.status(203)
@@ -10,13 +11,18 @@ exports.loggedin=(req,res,next)=>{
 
 
 exports.Signup=async(req,res)=>{
-    const user=await userModel.create(req.body);
-    res.status(200).json({status:"success",data:user});
+    try{
+        const user=await userModel.create(req.body);
+        res.status(200).json({status:"success",data:user});
+    
+    }
+    catch(err){
+        res.status(200).json({status:"failed",error:err.message});
+    }
+    
 };
-
 exports.Login=async(req,res)=>{
-    res.cookie('sessionID',req.sessionID);
-    res.status(200).json({status:"success",data:req.user});
+   res.status(200).json({status:"success",data:req.user,session:req.sessionID});
 };
 exports.forgotPasword=async (req,res)=>{
     const {email}=req.body;

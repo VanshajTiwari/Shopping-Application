@@ -7,18 +7,16 @@ const passport=require('passport');
 const expressSession=require('express-session');
 const dotenv=require('dotenv');
 dotenv.config({path:"config.env"});
-App.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
-}));
+
+App.use(Express.json());
+App.use(cookieParser());
 App.use(expressSession({
     secret:process.env.SECRET_EXPRESS,
     resave:false,
     saveUninitialized:false,
     cookie:{
         secure:false,
-        httpOnly:true,
-        sameSite:'strict'
+        maxAge:1000*60*60*24
     }
 }));
 App.use(passport.initialize());
@@ -26,12 +24,15 @@ App.use(passport.session());
 require("./Controllers/Auth/passport")(passport);
 
 
-App.use(cookieParser());
-App.use(Express.json());
 App.use(morgan('dev'));
 
+App.use(cors({
+    origin:["http://localhost:5173"],
+    methods:["GET","POST"],
+    credentials:true
+}));
 App.use("/",Express.static("./public"));
-App.use(Express.urlencoded({extended:false}));
+App.use(Express.urlencoded({extended:true}));
 //
 const userRoutes=require("./Routes/userRoutes");
 const productRoutes=require('./Routes/productsRoutes');

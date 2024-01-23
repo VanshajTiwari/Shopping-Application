@@ -4,8 +4,9 @@
   "description": "this is server for myntra Clone",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "nodemon server.js",
-    "build":"npm i"
+    "build": "npm i"
   },
   "author": "Vanshaj Tiwari",
   "license": "ISC",
@@ -24,6 +25,7 @@
     "nodemon": "^3.0.2",
     "passport": "^0.7.0",
     "passport-custom": "^1.1.1",
+    "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "slug": "^8.2.3",
     "validator": "^13.11.0"

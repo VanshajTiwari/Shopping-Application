@@ -14,8 +14,8 @@ const userSchema=new Mongoose.Schema({
     },
     role:{
         type:String,
-        enum:["Consumer","seller"],
-        default:"Consumer",
+        enum:["consumer","seller"],
+        default:"consumer",
     },
     password:{
         type:String,
@@ -49,14 +49,6 @@ const userSchema=new Mongoose.Schema({
         type:Object,
         default:{location:""}
     },
-    cart:[{
-         type:Mongoose.Schema.Types.ObjectId,
-         ref:"products"}
-    ],
-    orders:[{
-        type:Mongoose.Schema.Types.ObjectId,
-        ref:"products"}
-    ],
     active:{
         type:Boolean,
         enum:[true,false],
@@ -68,7 +60,7 @@ const userSchema=new Mongoose.Schema({
         default:Date.now()
     },
     resetTokenCreatedAt:Date,
-    resetToken:String,
+    resetToken:String, 
     resetTokenExpire:String
 
 },{
